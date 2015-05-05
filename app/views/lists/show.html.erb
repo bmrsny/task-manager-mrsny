@@ -12,6 +12,7 @@
        Title: <%= task.title %><br>
         Description: <%= task.description %><br>
        Completed Status: <%= task.status %><br>
+       Due Date: <%= task.due_date %><br>
        <%= link_to "Update Task", edit_task_path(task) %><br>
        <button class="complete-task">Mark as Completed</button><hr>
       </li>

@@ -51,11 +51,11 @@ function sortByTitles(all){
     bn = b.getAttribute('data-title');
 
     if(an > bn) {
-      return -1;
+      return 1;
     }
 
     if(an < bn) {
-      return 1;
+      return -1;
     }
     return 0;
   });
