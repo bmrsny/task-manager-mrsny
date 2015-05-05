@@ -2,8 +2,8 @@
 
 <div class="tasks">
   <ul>
-    <% @list.tasks.where(status: false).each do |task| %>
-      <li>
+    <% @list.tasks.not_completed.each do |task| %>
+      <li id="<%= task.id %>">
        Title: <%= task.title %><br>
         Description: <%= task.description %><br>
        Completed Status: <%= task.status %><br>

@@ -13,3 +13,33 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//
+//
+
+function markAsCompleted(button) {
+  $(button).parents('li').prepend('<p>Completed</p>');
+  $('#flash-container').show().addClass('alert-success')
+    .text('Successfully Completed Task');
+    setTimeout(function(){
+      $('#flash-container').fadeOut();
+    }, 1000);
+  $(button).remove();
+}
+
+function completeTask(button, id) {
+  $.ajax({
+    method: "PUT",
+    url: "/complete_tasks/" + id,
+    data: {id: id},
+    success: markAsCompleted(button)
+  });
+}
+
+$(document).ready(function() {
+  // mark task as complete
+  $('.complete-task').click(function(){
+    var button = this
+    var id = $(this).parents('li').attr('id')
+    completeTask(button, id)
+  });
+});
