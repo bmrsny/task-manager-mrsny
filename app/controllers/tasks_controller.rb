@@ -8,7 +8,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     if @task.save
       flash[:success]= "added the new task"
-      redirect_to lists_path
+     redirect_to list_path(@task.list_id)
     else
       flash[:error]
       redirect_to new_task_path
