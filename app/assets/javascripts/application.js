@@ -23,7 +23,7 @@ function markAsCompleted(button) {
   setTimeout(function(){
     $('#flash-container').fadeOut();
   }, 1000);
-  $(button).remove();
+  $(button).parent().remove();
 }
 
 function completeTask(button, id) {
@@ -62,6 +62,14 @@ function sortByTitles(all){
 
   all.detach().appendTo('body');
 }
+
+//function sortByTitles(all){
+  //$(all).sort(function(element){
+   //$(element).data('title');
+  //});
+  //all.detach().appendTo('body');
+//}
+
 
 function sortByDescriptions(all){
   all.sort(function(a,b) {
