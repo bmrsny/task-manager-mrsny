@@ -9,8 +9,9 @@ RSpec.describe Task, type: :model do
 
   it "shows queries for tasks that are not completed" do
     @task1 = Task.create(title:"not completed", description: "nope")
-    @task2 = Task.create(title: "completed", description: "yup")
+    @task2 = Task.create(title: "completed", description: "yup", status: true)
 
     expect(Task.not_completed).to include(@task1)
+    expect(Task.not_completed).to_not include(@task2)
   end
 end

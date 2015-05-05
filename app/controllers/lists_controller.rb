@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   def index
-    @lists = List.where(archived: false)
+    @lists = List.not_archived
   end
 
   def create
