@@ -1,6 +1,17 @@
 <h1><%= @list.title %></h1>
 
+<div class="tasks">
+  <ul>
+    <% @list.tasks.each do |task| %>
+      <li>
+        <%= task.title %>
+        <%= task.description %>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
 <%= link_to "Edit your List", edit_list_path(@list) %>
+<%= link_to "Create new Task", new_task_path(@list) %>
 
 

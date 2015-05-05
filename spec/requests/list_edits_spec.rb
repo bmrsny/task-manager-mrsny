@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "TasksEdits", type: :request do
+RSpec.describe "ListEdits", type: :request do
   describe "user can edit a list" do
     it "can update a list" do
       @list = List.create(title: "my list")
