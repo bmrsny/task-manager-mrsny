@@ -6,7 +6,8 @@
       <li>
        Title: <%= task.title %><br>
         Description: <%= task.description %><br>
-        Status: <%= task.status %><hr>
+       Completed Status: <%= task.status %><br>
+       <%= link_to "Update Task", edit_task_path(task) %><hr>
       </li>
     <% end %>
   </ul>
