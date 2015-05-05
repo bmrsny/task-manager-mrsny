@@ -1,9 +1,13 @@
 <h1><%= @list.title %></h1>
 
+<h2>Your tasks</h2>
+<%= text_field_tag :search_term %>
+<%= submit_tag "Filter", id: "filter" %>
+<button id="reset">Reset</button>
 <div class="tasks">
   <ul>
     <% @list.tasks.not_completed.each do |task| %>
-      <li id="<%= task.id %>">
+      <li id="<%= task.id %>" class="task">
        Title: <%= task.title %><br>
         Description: <%= task.description %><br>
        Completed Status: <%= task.status %><br>
