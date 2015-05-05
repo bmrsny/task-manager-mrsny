@@ -63,6 +63,24 @@ function sortByTitles(all){
   all.detach().appendTo('body');
 }
 
+function sortByDescriptions(all){
+  all.sort(function(a,b) {
+    var an = a.getAttribute('data-description'),
+    bn = b.getAttribute('data-title');
+
+    if(an > bn) {
+      return 1;
+    }
+
+    if(an < bn) {
+      return -1;
+    }
+    return 0;
+  });
+
+  all.detach().appendTo('body');
+}
+
 $(document).ready(function() {
   var all = $('.tasks').children().children();
 
@@ -89,6 +107,11 @@ $(document).ready(function() {
   $('#sort-titles').click(function(e) {
     e.preventDefault();
     sortByTitles(all);
+  });
+
+  $('#sort-descriptions').click(function(e) {
+    e.preventDefault();
+    sortByDescriptions(all);
   });
 
 });
