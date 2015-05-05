@@ -10,7 +10,7 @@ RSpec.describe "TasksEdits", type: :request do
 
       expect(current_path).to eq(list_path(@list))
 
-      click_link "Edit your List"
+        click_link "Edit your List"
 
       fill_in "list[title]", with: "list"
       click_link_or_button "Submit"
