@@ -1,0 +1,7 @@
+<h1>Your Task Manager</h1>
+
+<%= @lists.each do |list| %>
+  <%= list.title %>
+<% end %>
+
+<%= link_to "Create your new list", new_list_path %>
