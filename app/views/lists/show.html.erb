@@ -2,10 +2,11 @@
 
 <div class="tasks">
   <ul>
-    <% @list.tasks.each do |task| %>
+    <% @list.tasks.where(status: false).each do |task| %>
       <li>
-        <%= task.title %>
-        <%= task.description %>
+       Title: <%= task.title %><br>
+        Description: <%= task.description %><br>
+        Status: <%= task.status %><hr>
       </li>
     <% end %>
   </ul>
