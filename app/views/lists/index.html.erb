@@ -1,9 +1,12 @@
 <h1>Your Task Manager</h1>
 
+<%= link_to "Archived Lists", archive_lists_path %>
+
 <% @lists.each do |list| %>
   <ul>
     <li>
       <%= link_to list.title, list_path(list) %>
+      <%= button_to "Archive List", archive_list_path(list), method: :put %>
     </li>
   </ul>
 <% end %>
