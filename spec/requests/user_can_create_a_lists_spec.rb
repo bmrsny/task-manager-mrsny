@@ -8,7 +8,7 @@ RSpec.describe "UserCanCreateALists", type: :request do
       expect(current_path).to eq(new_list_path)
 
       fill_in "list[title]", with: "new list"
-      click_button "Create"
+      click_button "Submit"
 
       expect(current_path).to eq(lists_path)
       expect(page).to have_content("new list")

@@ -1,6 +1,2 @@
 <h1>Create your new List Here</h1>
-<%= form_for(@list) do |f| %>
-  <%= f.text_field :title, placeholder: "Title" %>
-
-  <%= f.submit "Create" %>
-<% end %>
+<%= render "/partials/form" %>
