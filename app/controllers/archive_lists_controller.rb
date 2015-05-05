@@ -15,8 +15,8 @@ class ArchiveListsController < ApplicationController
     end
   end
 
-  private
-
-  def list_params
+  def destroy
+    @list = List.find(params[:id]).delete
+    redirect_to archive_lists_path
   end
 end

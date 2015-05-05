@@ -4,7 +4,8 @@
   <ul>
     <li>
       Title: <%= list.title %><br>
-      Archived status :<%= list.archived %>
+      Archived status :<%= list.archived %><br>
+      <%= link_to "Delete", archive_list_path(list.id), method: :delete %>
     </li>
   </ul>
 <% end %>
