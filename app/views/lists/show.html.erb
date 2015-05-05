@@ -7,7 +7,8 @@
        Title: <%= task.title %><br>
         Description: <%= task.description %><br>
        Completed Status: <%= task.status %><br>
-       <%= link_to "Update Task", edit_task_path(task) %><hr>
+       <%= link_to "Update Task", edit_task_path(task) %><br>
+       <button class="complete-task">Mark as Completed</button><hr>
       </li>
     <% end %>
   </ul>

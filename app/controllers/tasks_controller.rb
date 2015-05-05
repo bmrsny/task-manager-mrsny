@@ -8,7 +8,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     if @task.save
       flash[:success]= "added the new task"
-     redirect_to list_path(@task.list_id)
+      redirect_to list_path(@task.list_id)
     else
       flash[:error]
       redirect_to new_task_path
@@ -20,14 +20,14 @@ class TasksController < ApplicationController
   end
 
   def update
-   @task = Task.find(params[:id])
-   if @task.update(task_params)
-     flash[:success] = "you updated"
-     redirect_to list_path(@task.list_id)
-   else
-     flash[:errors] = "could not update task at this time"
-     redirect_to edit_task_path(@task)
-   end
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      flash[:success] = "you updated"
+      redirect_to list_path(@task.list_id)
+    else
+      flash[:errors] = "could not update task at this time"
+      redirect_to edit_task_path(@task)
+    end
   end
 
   private
