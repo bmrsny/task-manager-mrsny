@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails_12factor', group: :production
 
+gem 'figaro'
+gem 'aws-sdk'
 gem 'rails', '4.2.1'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
