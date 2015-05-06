@@ -1,10 +1,11 @@
 <h1>Add a new Task</h1>
-<%= form_for(@task) do |f| %>
+<%= form_for (@task), html: {multipart: true} do |f| %>
 
   <%= f.text_field :title, placeholder: "Title" %>
   <%= f.text_field :description, placeholder: "Description" %><br>
   <%= f.hidden_field :list_id, value: @task.list_id %><br>
   Due Date: <%= f.date_select :due_date %><br>
+  Upload Picture: <%= f.file_field :avatar %>
 
   <%= f.submit "Submit" %>
 <% end %>
