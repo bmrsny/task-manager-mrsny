@@ -20,13 +20,12 @@
 //
 
 function markAsCompleted(button) {
-  $(button).parents('li').prepend('<p>Completed</p>');
   $('#flash-container').show().addClass('alert-success')
   .text('Successfully Completed Task');
   setTimeout(function(){
     $('#flash-container').fadeOut();
   }, 1000);
-  $(button).parent().remove();
+  $(button).parents('tr').remove();
 }
 
 function completeTask(button, id) {
@@ -48,50 +47,6 @@ function showMatches(match, all) {
   });
 }
 
-//function sortByTitles(all){
-  //all.sort(function(a,b) {
-    //var an = a.getAttribute('data-title'),
-    //bn = b.getAttribute('data-title');
-
-    //if(an > bn) {
-      //return 1;
-    //}
-
-    //if(an < bn) {
-      //return -1;
-    //}
-    //return 0;
-  //});
-
-  //all.detach().appendTo('body');
-//}
-
-//function sortByTitles(all){
-  //$(all).sort(function(element){
-   //$(element).data('title');
-  //});
-  //all.detach().appendTo('body');
-//}
-
-
-//function sortByDescriptions(all){
-  //all.sort(function(a,b) {
-    //var an = a.getAttribute('data-description'),
-    //bn = b.getAttribute('data-title');
-
-    //if(an > bn) {
-      //return 1;
-    //}
-
-    //if(an < bn) {
-      //return -1;
-    //}
-    //return 0;
-  //});
-
-  //all.detach().appendTo('body');
-//}
-
 $(document).ready(function() {
   var all = $('.tasks').children().children();
 
@@ -100,7 +55,8 @@ $(document).ready(function() {
   // mark task as complete
   $('.complete-task').click(function(){
     var button = this
-    var id = $(this).parents('li').attr('id')
+    debugger;
+    var id = $(this).parents('tr').attr('id')
     completeTask(button, id)
   });
 
