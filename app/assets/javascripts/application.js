@@ -95,6 +95,8 @@ function showMatches(match, all) {
 $(document).ready(function() {
   var all = $('.tasks').children().children();
 
+  $('#tasks').dataTable();
+
   // mark task as complete
   $('.complete-task').click(function(){
     var button = this
