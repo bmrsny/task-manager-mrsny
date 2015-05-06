@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
   def new
-    #list = List.find(params[:format])
     @task = Task.new(list_id: params[:format])
   end
 
@@ -10,7 +9,7 @@ class TasksController < ApplicationController
       flash[:success]= "added the new task"
       redirect_to list_path(@task.list_id)
     else
-      flash[:error]
+      flash[:error] = "could not create"
       redirect_to new_task_path
     end
   end
