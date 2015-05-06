@@ -19,4 +19,13 @@ RSpec.describe ListsController, type: :controller do
     expect(response.status).to eq(302)
     expect(List.first.title).to eq("my list")
   end
+
+  it "#update" do
+    @list = List.create(title: "my list")
+    attributes = {title: "new list"}
+
+    put :update, id: @list.id, list: attributes
+
+    expect(List.first.title).to eq("new list")
+  end
 end
