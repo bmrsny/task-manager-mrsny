@@ -1,0 +1,12 @@
+<h1>All your completed Tasks</h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li id="<%= task.id %>">
+      <%= task.title %><br>
+      <%= task.description %><br>
+      <%= task.due_date %><br>
+      <%= task.status %><br>
+      <button class="incomplete-task">Mark as Incomplete</button><hr>
+    </li>
+  <% end %>
+</ul>

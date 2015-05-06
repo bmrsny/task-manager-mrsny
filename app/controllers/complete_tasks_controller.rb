@@ -1,4 +1,7 @@
 class CompleteTasksController < ApplicationController
+  def index
+    @tasks = Task.where(status: true)
+  end
 
   def update
     @task = Task.find(params[:id])

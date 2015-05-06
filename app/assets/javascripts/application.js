@@ -28,12 +28,30 @@ function markAsCompleted(button) {
   $(button).parents('tr').remove();
 }
 
+function markAsIncompleted(button) {
+  $('#flash-container').show().addClass('alert-success')
+    .text('Successfully marked incomplete');
+    setTimeout(function () {
+      $('#flash-container').fadeOut();
+    }, 1000);
+    $(button).parents('li').remove();
+}
+
 function completeTask(button, id) {
   $.ajax({
     method: "PUT",
     url: "/complete_tasks/" + id,
     data: {id: id},
     success: markAsCompleted(button)
+  });
+}
+
+function incompleteTask(button, id) {
+  $.ajax({
+    method: "PUT",
+    url: "incomplete_tasks/" + id,
+    data: {id: id},
+    success: markAsIncompleted(button)
   });
 }
 
@@ -55,9 +73,16 @@ $(document).ready(function() {
   // mark task as complete
   $('.complete-task').click(function(){
     var button = this
-    debugger;
     var id = $(this).parents('tr').attr('id')
     completeTask(button, id)
+  });
+
+  // mark task as incomplete
+  $('.incomplete-task').click(function(e){
+    e.preventDefault();
+    var button = this
+    var id = $(this).parents('li').attr('id')
+    incompleteTask(button, id)
   });
 
   // filter with a search bar
