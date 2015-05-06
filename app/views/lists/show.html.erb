@@ -6,21 +6,35 @@
 <button id="reset">Reset</button><br>
 <a href="#"id="sort-titles">Sort by Titles</a> |
 <a href="#"id="sort-descriptions">Sort by Descriptions</a>
-<div class="tasks">
-  <ul>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Completed</th>
+      <th>Due Date</th>
+      <th>link to update</th>
+      <th>link to update</th>
+      <th>click to complete</th>
+    </tr>
+  </thead>
+  <tbody>
+
     <% @list.tasks.not_completed.each do |task| %>
-      <li id="<%= task.id %>" class="task" data-title="<%= task.title%>"
-        data-description="<%= task.description %>">
-       Title: <%= task.title %><br>
-        Description: <%= task.description %><br>
-       Completed Status: <%= task.status %><br>
-       Due Date: <%= task.due_date %><br>
-       <%= link_to "Update Task", edit_task_path(task) %><br>
-       <button class="complete-task">Mark as Completed</button><hr>
-      </li>
+      <tr id="<%= task.id %>" class="task">
+        <td><%= task.title %></td>
+        <td><%= task.description %></td>
+        <td><%= task.status %></td>
+        <td><%= task.due_date %></td>
+        <td><%= link_to "Update Task", edit_task_path(task) %></td>
+        <td><button class="complete-task">Mark as Completed</button></td>
+      </tr>
     <% end %>
-  </ul>
-</div>
+  </tbody>
+</table>
+
+
+
 
 <%= link_to "Edit your List", edit_list_path(@list) %>
 <%= link_to "Create new Task", new_task_path(@list) %>
